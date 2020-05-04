@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    {{ form.media }}
+    <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-primary" type="submit">{{ post.id|yesno:'Edit,Post' }}</button>
+    </form>
+{% endblock %}
