@@ -2,7 +2,7 @@ from django.views.generic import ListView, DetailView, DeleteView
 
 from posts.forms import PostForm
 from posts.models import Post
-from posts.publisher import PublisherCreateView, PublisherUpdateView
+from posts.publisher import PublisherCreateView, PublisherUpdateView, PublisherDeleteView
 
 
 class PostListView(ListView):
@@ -23,5 +23,5 @@ class PostUpdateView(PublisherUpdateView):
     form_class = PostForm
 
 
-class PostDeleteView(DeleteView):
+class PostDeleteView(PublisherDeleteView):
     model = Post

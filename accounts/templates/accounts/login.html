@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="col-lg-4 offset-4">
+        <div class="panel ">
+            <div class="panel-body"><h3>Login</h3>
+                <form method="post">{% csrf_token %}
+                    {% crispy form %}
+{#                    <div class="form-group form-inline m-b-10 ">#}
+{#                        <div class="form-check">#}
+{#                            <label>#}
+{#                                <input type="checkbox"><small class="m-l-10"> Remember me</small>#}
+{#                            </label>#}
+{#                        </div>#}
+{#                    </div>#}
+                </form>
+            </div>
+        </div>
+        <a href="{% url 'accounts:register' %}?next={{ request.path }}">Don't have an account yet?</a>
+    </div>
+{% endblock %}
