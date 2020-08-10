@@ -5,6 +5,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, Pass
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
+from accounts.models import Profile
+
 
 class UserRegistrationForm(UserCreationForm):
     first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': 'Enter First Name'}))
@@ -94,3 +96,20 @@ class EmailValidationOnForgotPassword(PasswordResetForm):
         if not User.objects.filter(email__iexact=email, is_active=True).exists():
             raise ValidationError("There is no user registered with the specified email address!")
         return email
+
+
+class UserForm(forms.ModelForm):
+    first_name = forms.CharField(required=True, widget=forms.TextInput())
+    last_name = forms.CharField(required=True, widget=forms.TextInput())
+    email = forms.EmailField(widget=forms.EmailInput())
+
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email']
+
+
+class UserProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = Profile
+        fields = '__all__'

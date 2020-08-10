@@ -13,7 +13,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['d1b42d6e4c2f.ngrok.io', '127.0.0.1']
 
 
 # Application definition
@@ -26,6 +26,8 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+
+    'rest_framework',
 ]
 THIRD_PARTY_APPS = [
     'crispy_forms',
@@ -75,6 +77,13 @@ WSGI_APPLICATION = 'svf.wsgi.application'
 
 DATABASES = {
     'default': {
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': os.environ.get('POSTGRES_DB'),
+        # # 'USER': os.environ.get('POSTGRES_USER'),
+        # 'USER': 'svfuser',
+        # 'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        # 'HOST': os.environ.get('POSTGRES_HOST'),
+        # 'PORT': 5432,
         'ENGINE': os.environ.get('ENGINE'),
         'NAME': os.path.join(BASE_DIR, os.environ.get('NAME')),
     }

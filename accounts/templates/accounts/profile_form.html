@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="col-lg-8 center no-padding">
+        <div class="panel ">
+            <div class="panel-body"><h3>Register New Account</h3>
+                <form class="form-transparent-grey" method="post">{% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-12">
+                            {{ user_form|crispy }}
+                            {{ form|crispy }}
+                            {{ user_form.as_p }}
+                            {{ form.as_p }}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+{#        <a href="{% url 'accounts:login' %}?next={{ request.path }}">Already have an account?</a>#}
+    </div>
+{% endblock %}

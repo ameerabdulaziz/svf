@@ -1,5 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    home
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+      <h1 class="display-3">SVF - Stolen Vehicles Found</h1>
+      <p class="lead">SVF stands for "Stolen Vehicles Found". This application allows users to find their stolen
+          vehicles that found by other users. So, if a user find a one and he doubt that this vehicle is stolen or
+          has no owner accordingly, he will upload a post has as much data as he could about it to make it so clear for
+          other users who looking for ours.</p>
+      <a href="{% url 'posts:post-list' %}" class="btn btn-primary btn-lg">Check out all posts</a>
+        OR
+      <a href="{% url 'posts:post-create' %}" class="btn btn-primary btn-lg">add new post</a>
+    </header>
 {% endblock %}

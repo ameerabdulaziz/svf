@@ -11,7 +11,7 @@ project_urls = [
 ]
 
 third_party_urls = [
-
+    path('api/', include('posts.api.urls')),
 ]
 
 admin_urls = [

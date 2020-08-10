@@ -2,3 +2,4 @@ django
 pillow
 django-crispy-forms
 django-location-field
+psycopg2

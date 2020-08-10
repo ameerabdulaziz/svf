@@ -6,6 +6,8 @@ from accounts import views
 app_name = 'accounts'
 
 urlpatterns = [
+    path('<int:pk>', views.ProfileDetailView.as_view(), name='profile_detail'),
+    path('<int:pk>/edit/', views.ProfileUpdateView.as_view(), name='profile_update'),
     path('register/', views.UserRegisterView.as_view(), name='register'),
     path('login/', views.UserLoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),

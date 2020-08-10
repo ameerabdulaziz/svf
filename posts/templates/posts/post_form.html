@@ -3,10 +3,59 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"
+            integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+            type="text/javascript"></script>
     {{ form.media }}
-    <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
-        {{ form|crispy }}
-        <button class="btn btn-primary" type="submit">{{ post.id|yesno:'Edit,Post' }}</button>
-    </form>
+    <div class="container">
+        <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+            <div class="row">
+                <div class="col-8">
+                    {{ form.title|as_crispy_field  }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    {{ form.image|as_crispy_field  }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ form.vehicle_type|as_crispy_field  }}
+                </div>
+                <div class="col">
+                    {{ form.make|as_crispy_field  }}
+                </div>
+                <div class="col">
+                    {{ form.model|as_crispy_field  }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ form.vehicle_numbers|as_crispy_field  }}
+                </div>
+                <div class="col">
+                    {{ form.vehicle_characters|as_crispy_field  }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ form.location|as_crispy_field  }}
+                </div>
+                <div class="col">
+                    {{ form.region|as_crispy_field  }}
+                </div>
+                <div class="col">
+                    {{ form.city|as_crispy_field  }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    {{ form.description|as_crispy_field  }}
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">{{ post.id|yesno:'Edit,Post' }}</button>
+        </form>
+    </div>
 {% endblock %}

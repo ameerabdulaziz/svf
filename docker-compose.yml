@@ -1,6 +1,13 @@
 version: '3'
 
 services:
+  postgres_db:
+    image: postgres:12
+    environment:
+      - POSTGRES_DB=svf_db
+      - POSTGRES_USER=svf_user
+      - POSTGRES_PASSWORD=svfsvf
+
   web:
     build: .
     command: python3 manage.py runserver 0.0.0.0:8000
@@ -9,4 +16,6 @@ services:
     env_file:
       - .env
     ports:
-      - 8000:8000
+      - "8000:8000"
+    depends_on:
+      - postgres_db
