@@ -13,7 +13,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = ['d1b42d6e4c2f.ngrok.io', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'svf.pythonanywhere.com']
 
 
 # Application definition
